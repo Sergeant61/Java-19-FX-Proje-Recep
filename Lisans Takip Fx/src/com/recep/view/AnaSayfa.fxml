@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="520.0" prefWidth="1000.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.recep.cont.AnaSayfaCont">
+	<children>
+		<TabPane fx:id="tabPlane" layoutX="15.0" layoutY="15.0"
+			prefHeight="440.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+				<Tab fx:id="tab_lk" onSelectionChanged="#onLkChanged" text="Lisans Kayıt İşlemleri">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0"
+							prefWidth="764.0" style="-fx-background-color: GRAY;">
+							<children>
+								<CheckBox fx:id="cb_is_alinacak_lisans" layoutX="14.0"
+									layoutY="14.0" mnemonicParsing="false" onAction="#onActionCheckLisans"
+									prefHeight="21.0" prefWidth="260.0" text="Alınmış veya Alınacak" />
+								<TextField fx:id="tf_lisans_ismi" layoutX="14.0"
+									layoutY="50.0" prefHeight="31.0" prefWidth="300.0" promptText="Lisans Adı*" />
+								<DatePicker fx:id="dp_alindigi_tarih" layoutX="14.0"
+									layoutY="96.0" prefHeight="31.0" prefWidth="300.0" promptText="Alındığı Tarih" />
+								<DatePicker fx:id="dp_gecerlilik_tarih" layoutX="14.0"
+									layoutY="142.0" prefHeight="31.0" prefWidth="300.0" promptText="Geçerlilik Tarihi" />
+								<TextField fx:id="tf_satici_name" layoutX="329.0"
+									layoutY="50.0" prefHeight="31.0" prefWidth="300.0" promptText="Satıcı İsmi" />
+								<TextArea fx:id="tf_satici_adres" layoutX="329.0"
+									layoutY="96.0" prefHeight="73.0" prefWidth="300.0" promptText="Satıcı Adresi" />
+								<ComboBox fx:id="cb_ucret" layoutX="644.0" layoutY="50.0"
+									prefHeight="31.0" prefWidth="169.0" />
+								<ComboBox fx:id="cb_ucret_type" layoutX="822.0"
+									layoutY="50.0" prefHeight="31.0" prefWidth="122.0" />
+								<Button fx:id="btn_guncelle" layoutX="866.0" layoutY="203.0"
+									mnemonicParsing="false" onAction="#onClickGuncelle" text="Güncelle" />
+								<Button fx:id="btn_kaydet" layoutX="866.0" layoutY="203.0"
+									mnemonicParsing="false" onAction="#onClickKaydet" prefHeight="31.0"
+									prefWidth="78.0" text="Kaydet" />
+								<TextField fx:id="tf_personel_name" disable="true"
+									layoutX="14.0" layoutY="203.0" prefHeight="31.0" prefWidth="260.0" />
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="tab_lg" onSelectionChanged="#onLgChanged"
+					text="Lisans Güncelle/Sil İşlemleri">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0"
+							prefWidth="764.0" style="-fx-background-color: GRAY;">
+							<children>
+								<TableView fx:id="tableList" layoutX="15.0" layoutY="15.0"
+									prefHeight="333.0" prefWidth="940.0" />
+								<RadioButton fx:id="rb_t_eski" layoutX="15.0"
+									layoutY="366.0" mnemonicParsing="false" text="Tarihi Geçmiş" />
+								<RadioButton fx:id="rb_t_yeni" layoutX="138.0"
+									layoutY="366.0" mnemonicParsing="false" text="Tarihi Geçmemiş" />
+								<RadioButton fx:id="rb_t_alinmamis" layoutX="281.0"
+									layoutY="366.0" mnemonicParsing="false" text="Alınmamış Lisans" />
+								<RadioButton fx:id="rb_t_tumu" layoutX="430.0"
+									layoutY="366.0" mnemonicParsing="false" text="Tümü" />
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="tab_kk" onSelectionChanged="#onKkChanged"
+					text="Kullanıcı Kayıt İşlemleri">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0"
+							prefWidth="985.0" style="-fx-background-color: GRAY;">
+							<children>
+								<TextField fx:id="tf_kullanici_name" layoutX="15.0"
+									layoutY="15.0" prefHeight="31.0" prefWidth="300.0" promptText="Kullanıcı Adı*" />
+								<TextField fx:id="tf_parola" layoutX="15.0" layoutY="61.0"
+									prefHeight="31.0" prefWidth="300.0" promptText="Parola*" />
+								<TextField fx:id="tf_parola_tekrar" layoutX="15.0"
+									layoutY="107.0" prefHeight="31.0" prefWidth="300.0" promptText="Parola Tekrar*" />
+								<TextField fx:id="tf_personel_kayit_name" layoutX="330.0"
+									layoutY="15.0" prefHeight="31.0" prefWidth="300.0" promptText="Personel Adı" />
+								<CheckBox fx:id="cb_rol00" layoutX="15.0" layoutY="190.0"
+									mnemonicParsing="false" onAction="#onActionCheckRol0" text="CheckBox" />
+								<CheckBox fx:id="cb_rol01" layoutX="15.0" layoutY="226.0"
+									mnemonicParsing="false" onAction="#onActionCheckRol1" text="CheckBox" />
+								<CheckBox fx:id="cb_rol02" layoutX="15.0" layoutY="262.0"
+									mnemonicParsing="false" onAction="#onActionCheckRol2" text="CheckBox" />
+								<CheckBox fx:id="cb_rol03" layoutX="15.0" layoutY="298.0"
+									mnemonicParsing="false" onAction="#onActionCheckRol3" text="CheckBox" />
+								<CheckBox fx:id="cb_rol04" layoutX="15.0" layoutY="334.0"
+									mnemonicParsing="false" onAction="#onActionCheckRol4" text="CheckBox" />
+								<Label layoutX="15.0" layoutY="155.0" text="Roller"
+									underline="true" />
+								<Button fx:id="btn_guncelle1" layoutX="552.0" layoutY="329.0"
+									mnemonicParsing="false" onAction="#onClickGuncelle1" text="Güncelle" />
+								<Button fx:id="btn_kaydet1" layoutX="552.0" layoutY="329.0"
+									mnemonicParsing="false" onAction="#onClickKaydet1" prefHeight="31.0"
+									prefWidth="78.0" text="Kaydet" />
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="tab_kg" onSelectionChanged="#onKgChanged"
+					text="Kullanıcı Güncelle/Sil İşlemleri">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0"
+							prefWidth="985.0" style="-fx-background-color: GRAY;">
+							<children>
+								<TableView fx:id="tableList1" layoutX="15.0" layoutY="14.0"
+									prefHeight="333.0" prefWidth="940.0" />
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab text="Hakkında">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+							prefWidth="200.0" style="-fx-background-color: GRAY;">
+							<children>
+								<Text fill="WHITE" layoutX="14.0" layoutY="30.0"
+									strokeType="OUTSIDE" strokeWidth="0.0"
+									text="Bu uygulama Recep Özen tarafından Vektörel Bilişim Java-19 Kursu bitirme projesi olarak yazılmıştır."
+									textAlignment="JUSTIFY" wrappingWidth="950.6708984375">
+									<font>
+										<Font name="Arial Bold Italic" size="20.0" />
+									</font>
+								</Text>
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+		<Label fx:id="t_kullanici_adi" layoutX="15.0" layoutY="464.0"
+			prefHeight="21.0" prefWidth="210.0" />
+		<Label fx:id="t_cıkıs" layoutX="15.0" layoutY="484.0"
+			onMouseClicked="#onTcıkısCkıck" onMouseExited="#onTcıkısExited"
+			onMouseMoved="#onTcıkısMoved" prefHeight="22.0" prefWidth="210.0"
+			text="Çıkış" />
+		<Label fx:id="t_kul_bilgi" alignment="TOP_LEFT" layoutX="224.0"
+			layoutY="464.0" prefHeight="42.0" prefWidth="550.0" textAlignment="JUSTIFY" />
+		<Label fx:id="t_date" alignment="BOTTOM_RIGHT" layoutX="774.0"
+			layoutY="464.0" prefHeight="42.0" prefWidth="210.0" textAlignment="RIGHT"
+			wrapText="true" />
+	</children>
+</AnchorPane>
